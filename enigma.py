@@ -3,7 +3,7 @@ import codecs
 import random
 import re
 import time
-def sip(s1,s2,s1s2): #s1s2 - текст который нужно заменить
+def sip(s1,s2,s1s2): #s1s2 text that will be changed
     enc = s1s2.maketrans(s1,s2)
     s3 = s1s2.translate(enc)
     return s3.upper() 
@@ -33,7 +33,7 @@ pluging = []
 letter = []
 kep = 0
 print("--------------------------------------------------------------------")
-print("This's working prototype of Enigma 3M by Oganes Bozoyan KKSO-03-20"+'\n')
+print("This's working prototype of Enigma 3M by Oganes Bozoyan "+'\n')
 print("Your text must be in dirty_text.txt"+'\n')
 clearing = text_cleaner()
 print("I've remove from your text all this symbols : \n")
