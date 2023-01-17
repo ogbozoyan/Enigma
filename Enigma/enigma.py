@@ -9,8 +9,7 @@ def sip(s1,s2,s1s2): #s1s2 text that will be changed
     s3 = s1s2.translate(enc)
     return s3.upper() 
 def shift(step,stroka): 
-    res = (stroka[-step:]+stroka[:-step])
-    return res
+    return (stroka[-step:]+stroka[:-step])
 def text_cleaner():
     with codecs.open("dirty_text.txt",encoding='utf-8') as f:
         text = f.read()
@@ -23,14 +22,14 @@ start_time = time.time()
 print("--------------------------------------------------------------------")
 print("This's working prototype of Enigma 3M by Oganes Bozoyan "+'\n')
 print("Choose mode : keyboard(1) or file(2). To exit type 'q'"+'\n')
+alph = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+reflector1 = 'СЗЭЧХЮЖЁФПЫВНИКТЛШМРЩДУЙЬГЯЪЕАБОЦ' #here you can put any key as you want
+plugboard = 'ЯЬВРДЁЕЖТИЙКЛШНОПГСЗХФУЦЧМЩЪЮБЭЫА' #here you can put any key as you want
+counter_1 = -1
 while 1:
-    alph = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-    reflector1 = 'СЗЭЧХЮЖЁФПЫВНИКТЛШМРЩДУЙЬГЯЪЕАБОЦ' #here you can put any key as you want
     rot1 = 'ИДЦБШЧРЮФУЕВСОЙМПНТЁЯАГЬЩЗЫКЭЖХЪЛ' #here you can put any key as you want
     rot2 = 'ДШЗВГЬПЕЁЙЫИЯЦЭФЮСХАОЧНБУКРТМЩЛЪЖ' #here you can put any key as you want
     rot3 = 'СЪВЩДФЙБЧЫПХМЦЖКРЁУИГЗОТАНЯЭЮШЬЛЕ' #here you can put any key as you want
-    plugboard = 'ЯЬВРДЁЕЖТИЙКЛШНОПГСЗХФУЦЧМЩЪЮБЭЫА' #here you can put any key as you want
-    counter_1 = -1
     counter_2 = -1
     counter_3 = -1
     pluging = []
@@ -40,7 +39,7 @@ while 1:
     print('\n')
     if mode == '1':
         text = input("Type your text ,if you want to stop,just type 'stop' : ")
-        
+
         for i in text:
             if i in marks:
                 text = text.replace(i, "")
@@ -82,7 +81,7 @@ while 1:
                 kep=(counter_1 + 3-1)
                 print(letter,end='')
             print()
-            print("--- %s seconds ---" % (time.time() - start_time))
+            print(f"--- {time.time() - start_time} seconds ---")
     elif mode == '2':
         print("Your text must be in dirty_text.txt"+'\n')
         clearing = text_cleaner()
@@ -123,8 +122,8 @@ while 1:
             kep=(counter_1 + 3-1)
             print(letter,end='')
         print()
-        print("--- %s seconds ---" % (time.time() - start_time))
+        print(f"--- {time.time() - start_time} seconds ---")
     elif mode == 'q':
-        print("--- %s seconds ---" % (time.time() - start_time))
+        print(f"--- {time.time() - start_time} seconds ---")
         quit()
 
