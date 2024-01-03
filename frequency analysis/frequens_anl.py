@@ -1,41 +1,45 @@
-import string
 import codecs
+
 print('\n')
 print("Frequency analysis for Russian Language in 'Text' file")
 k = 0
-alph_rus = ['а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я']
+alph_rus = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у',
+            'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
 alph_rus_big = [x.capitalize() for x in alph_rus]
-statistik =[7.998,1.592,4.533,1.687,2.977,8.483,0.013,0.94,1.641,7.367,1.208,3.486,4.343,3.203,6.7,10.983,2.804,4.746,5.473,6.318,2.615,0.267,0.966,0.486,1.45,0.718,0.361,0.037,1.898,1.735,0.331,0.638,2.001]
+statistik = [7.998, 1.592, 4.533, 1.687, 2.977, 8.483, 0.013, 0.94, 1.641, 7.367, 1.208, 3.486, 4.343, 3.203, 6.7,
+             10.983, 2.804, 4.746, 5.473, 6.318, 2.615, 0.267, 0.966, 0.486, 1.45, 0.718, 0.361, 0.037, 1.898, 1.735,
+             0.331, 0.638, 2.001]
 for j in range(33):
-    statistik[j] = round(statistik[j],2)
-    k +=1
+    statistik[j] = round(statistik[j], 2)
+    k += 1
 k = 0
 print(statistik)
-count = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-proc = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] #array for calc of procent of letters in text
+count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+proc = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0]  # array for calc of procent of letters in text
 print(len(proc))
 print(len(statistik))
-print('\n')#Let's
-print("Loading alphabit...")#Make
-print('')#Some
-print('3...')#cosmetics
-print('')#weeeee
-print('2...')#are
-print('')#we 
-print('1...')#we'll
-print('')#rock
-print(alph_rus_big)#you
-print('\n')#i
-print(alph_rus)#belive
-print('\n')#i
-print("Done")#can
-print('\n')#fly
-print("What's name of your file ? :")#i
-print('')#belive
+print('\n')  # Let's
+print("Loading alphabit...")  # Make
+print('')  # Some
+print('3...')  # cosmetics
+print('')  # weeeee
+print('2...')  # are
+print('')  # we
+print('1...')  # we'll
+print('')  # rock
+print(alph_rus_big)  # you
+print('\n')  # i
+print(alph_rus)  # belive
+print('\n')  # i
+print("Done")  # can
+print('\n')  # fly
+print("What's name of your file ? :")  # i
+print('')  # belive
 file = input()
 print('')
-f = codecs.open(file,encoding='utf-8')
-size = 0 #we will measure the value of letters in file
+f = codecs.open(file, encoding='utf-8')
+size = 0  # we will measure the value of letters in file
 for i in f.read():
     if i.lower() == alph_rus[0] or i.lower() == alph_rus_big[0]:
         count[0] += 1
@@ -136,7 +140,7 @@ for i in f.read():
     elif i.lower() == 'я' or i.lower() == 'Я':
         count[32] += 1
         size += 1
-    
+
 print(count)
 print('')
 print("Value of characters in text :")
@@ -145,17 +149,21 @@ print(size)
 print('')
 
 for z in range(33):
-    proc[z] = (int(count[k])*100)/size#filling array of procents
-    proc[z] = round(proc[z],2)
-    k +=1
+    proc[z] = (int(count[k]) * 100) / size  # filling array of procents
+    proc[z] = round(proc[z], 2)
+    k += 1
 print("Procent of frequens you can see below or in 'proc_of_letters.txt' file")
 print('')
 print(proc)
-of = codecs.open("proc_of_letters.txt" , "w",encoding='utf-8')
-of.write('Here is frequens of letters in "' +str(file)+'\"'+'\n'+'First column is statistic percent in second the letter and in third percentage of this text'+'\n')
+of = codecs.open("proc_of_letters.txt", "w", encoding='utf-8')
+of.write(
+    'Here is frequens of letters in \"{0}\"\nFirst column is statistic percent in second the letter and in third'
+    'percentage of this text\n'.format(
+        str(
+            file)))
 for x in range(33):
-    
-    of.write(str(statistik[x])+'|'+str(alph_rus[x])+'|'+str(proc[x])+'\n')#filling proc_of_letters.txt with our procents
-    x+=1
+    of.write(str(statistik[x]) + '|' + str(alph_rus[x]) + '|' + str(
+        proc[x]) + '\n')  # filling proc_of_letters.txt with our procents
+    x += 1
 of.close()
 f.close()
