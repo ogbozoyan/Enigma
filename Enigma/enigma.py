@@ -1,7 +1,4 @@
-import string
 import codecs
-import random
-import re
 import time
 
 marks = '''!()-[]{};?@#$%:'"\,./^&amp;*_◦ +1234567890AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'''
